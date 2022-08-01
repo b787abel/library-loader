@@ -4,12 +4,12 @@ set -e -o pipefail
 
 BASEDIR=$(dirname "$0")
 
-local RUSTC=$(which rustc)
-local CARGO=$(which cargo)
-local BREW=$(which brew)
-local OPEN=$(which open)
+RUSTC=$(which rustc)
+CARGO=$(which cargo)
+BREW=$(which brew)
+OPEN=$(which open)
 
-local REQUIRED_PKG=("gtk+3" "atk" "gdk-pixbuf" "pango" "adwaita-icon-theme")
+REQUIRED_PKG=("gtk+3" "atk" "gdk-pixbuf" "pango" "adwaita-icon-theme")
 for PKG in $REQUIRED_PKG; do
     $BREW ls --versions $PKG || $BREW install $PKG
 done
